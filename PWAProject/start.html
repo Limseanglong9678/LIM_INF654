@@ -6,10 +6,26 @@
     <meta name="theme-color" content="#42a5f5">
     <title>Pet Care Companion</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="container">
+
+    <nav class="blue lighten-1">
+        <div class="nav-wrapper container">
+            <a href="#" data-target="side-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <span class="navbar-title">Pet Care</span> 
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="side-nav">
+        <li><a href="#AddCompanion">Add Companion</a></li>
+        <li><a href="#EditCompanion">Edit Companion</a></li>
+        <li><a href="#profile">Pet Profile</a></li>
+    </ul>
+
+    <div class="container content">
         <h2 class="center-align">Companion Manager</h2>
         <p class="center-align">Manage your pet's activities and appointments!</p>
 
@@ -17,30 +33,36 @@
             <div class="col s12 m6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="images.jpg" alt="Pet Image">
+                        <div class="image-container">
+                            <img src="images.jpg" alt="Pet Image">
+                        </div>
                         <span class="card-title">Cloud</span>
                     </div>
                     <div class="card-content">
                         <p>He likes to be lazy all day.</p>
                     </div>
                     <div class="card-action action-buttons">
-                        <a href="#">Add Appointment</a>
-                        <a href="#">Add Reminder</a>
+                        <a href="#">Profile</a>
+                        <a href="#">Add/Edit Appointment</a>
+                        <a href="#">Add/Edit Reminder</a>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="Kido.jpg" alt="Pet Image">
+                        <div class="image-container">
+                            <img src="Kido.jpg" alt="Pet Image">
+                        </div>
                         <span class="card-title">Kido</span>
                     </div>
                     <div class="card-content">
                         <p>Can't sit still!</p>
                     </div>
                     <div class="card-action action-buttons">
-                        <a href="#">Add Appointment</a>
-                        <a href="#">Add Reminder</a>
+                        <a href="#">Profile</a>
+                        <a href="#">Add/Edit Appointment</a>
+                        <a href="#">Add/Edit Reminder</a>
                     </div>
                 </div>
             </div>
@@ -49,11 +71,13 @@
             <h5>Upcoming Reminders</h5>
             <ul class="collection">
                 <li class="collection-item">Vet Appointment for Cloud - Tomorrow</li>
-                <li class="collection-item">Feeding Time for Kido- 7:00 PM</li>
+                <li class="collection-item">Feeding Time for Kido - 7:00 PM</li>
                 <li class="collection-item">Grooming for Cloud - Next Monday</li>
             </ul>
         </div>
-
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
