@@ -19,7 +19,7 @@
 2. Open `start.html` in a web browser to view the app.
 3. Manage your pet's activities using the provided interface.
 
-##Testing
+## Testing
 - Open Developer Tools > Network tab > set to Offline.
 - Reload the page to confirm cached resources are served while offline.
 
