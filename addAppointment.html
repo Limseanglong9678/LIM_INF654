@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#42a5f5">
+    <title>Add Appointment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="CRUDappoinment.css">
+</head>
+<body>
+    <nav class="blue lighten-1">
+        <div class="nav-wrapper container">
+            <a href="start.html" class="brand-logo">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <span class="navbar-title">Pet Care</span>
+        </div>
+    </nav>
+
+    <div class="container content">
+        <h2 class="center-align">Add Appointment</h2>
+        <form id="addAppointmentForm">
+            <input type="text" id="petName" placeholder="Pet Name" required>
+            <input type="text" id="activity" placeholder="Activity" required>
+            <input type="datetime-local" id="date" placeholder="Date" required>
+            <button type="submit" class="btn blue">Add Appointment</button>
+        </form>
+    </div>
+
+    <script type="module" src="firebaseDB.js"></script>
+    <script type="module" src="addAppointment.js"></script>
+</body>
+</html>
