@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       alert("Sign-Up Successful! Please Sign In.");
       showSignIn.click(); // Switch to Sign-In Form
-    } catch (error) {
+    }  catch (error) {
       console.error("Error during sign-up:", error);
       alert(error.message);
     }

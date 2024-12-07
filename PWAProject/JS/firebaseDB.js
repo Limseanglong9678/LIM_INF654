@@ -24,8 +24,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-const auth = getAuth(auth);
-export{auth};
+export const auth = getAuth(auth);
+
 
 // CRUD Operations with Timestamp
 
