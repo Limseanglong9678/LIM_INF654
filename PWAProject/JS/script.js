@@ -25,7 +25,6 @@ installButton.addEventListener("click", () => {
     installButton.remove();
     });
 });
-  
 
 // DOM Element
 const remindersList = document.querySelector(".collection");

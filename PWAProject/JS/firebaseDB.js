@@ -9,7 +9,7 @@ import {
   doc,
   Timestamp
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-
+import { getAuth } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC8gFy3mdxe_dO5u3l6D2KqKxz4L3Qo5ic",
@@ -24,6 +24,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+const auth = getAuth(auth);
+export{auth};
 
 // CRUD Operations with Timestamp
 
