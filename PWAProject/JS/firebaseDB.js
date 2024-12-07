@@ -9,7 +9,8 @@ import {
   doc,
   Timestamp
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-import { getAuth } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC8gFy3mdxe_dO5u3l6D2KqKxz4L3Qo5ic",
@@ -23,7 +24,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+console.log("Firebase App initialized:", app);
+
 export const db = getFirestore(app);
+console.log("Firestore initialized:", db);
+
+export const auth = getAuth(app);
+console.log("Auth initialized:", auth);
 
 
 // CRUD Operations with Timestamp

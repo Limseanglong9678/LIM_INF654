@@ -1,5 +1,6 @@
 const CACHE_NAME = 'pet-care-cache-v4';
 const ASSETS_TO_CACHE = [
+    'signin.html',
     'start.html',
     'style.css',
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css',
@@ -36,18 +37,28 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
+    if (
+      event.request.url.includes("firestore.googleapis.com") ||
+      event.request.url.includes("firebase")
+    ) {
+      return; // Allow Firebase requests to bypass the service worker
+    }
+  
     event.respondWith(
-        caches.match(event.request).then((response) => {
-            return response || fetch(event.request).catch(() => {
-                console.error('Fetch failed for:', event.request.url);
-                return new Response('Offline content unavailable.', {
-                    status: 503,
-                    statusText: 'Service Unavailable',
-                });
-            });
-        })
+      caches.match(event.request).then((response) => {
+        return (
+          response ||
+          fetch(event.request).catch(() => {
+            if (event.request.mode === "navigate") {
+              return caches.match("/offline.html");
+            }
+          })
+        );
+      })
     );
-});
+  });
+  
+
 
 

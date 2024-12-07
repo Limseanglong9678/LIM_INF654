@@ -6,11 +6,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-console.log("Auth and DB imported successfully:", { auth, db });
-
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOMContentLoaded event fired");
-
   const signInForm = document.getElementById("sign-in-form");
   const signUpForm = document.getElementById("sign-up-form");
   const showSignUp = document.getElementById("show-signup");
@@ -18,76 +14,66 @@ document.addEventListener("DOMContentLoaded", () => {
   const signInBtn = document.getElementById("sign-in-btn");
   const signUpBtn = document.getElementById("sign-up-btn");
 
-  // Check if all elements are found
-  console.log("DOM Elements:", {
-    signInForm,
-    signUpForm,
-    showSignUp,
-    showSignIn,
-    signInBtn,
-    signUpBtn,
-  });
-
-  showSignUp.addEventListener("click", () => {
-    console.log("Switching to Sign-Up form");
-    signUpForm.style.display = "block";
-    signInForm.style.display = "none";
-  });
+  console.log("Sign-Up and Sign-In Forms Initialized.");
 
   showSignIn.addEventListener("click", () => {
-    console.log("Switching to Sign-In form");
+    console.log("Switching to Sign-In Form");
     signUpForm.style.display = "none";
     signInForm.style.display = "block";
   });
 
-  // Handle Sign-Up
+  showSignUp.addEventListener("click", () => {
+    console.log("Switching to Sign-Up Form");
+    signInForm.style.display = "none";
+    signUpForm.style.display = "block";
+  });
+
   signUpBtn.addEventListener("click", async () => {
-    console.log("Sign-Up button clicked");
+    console.log("Sign-Up Button Clicked");
     const name = document.getElementById("sign-up-name").value;
     const email = document.getElementById("sign-up-email").value;
     const password = document.getElementById("sign-up-password").value;
 
-    // Log input values for debugging (do not log passwords in production)
-    console.log("Sign-Up input values:", { name, email });
+    console.log("Sign-Up Details:", { name, email });
 
     try {
+      // Create a new user
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      console.log("User created successfully:", user);
+      console.log("User Created:", user);
 
+      // Update user profile with the name
       await updateProfile(user, { displayName: name });
-      console.log("User profile updated with name:", name);
+      console.log("User Profile Updated with Name:", name);
 
+      // Save user data in Firestore
       await setDoc(doc(db, "users", user.uid), { name, email, createdAt: new Date() });
-      console.log("User data stored in Firestore with UID:", user.uid);
+      console.log("User Data Saved to Firestore");
 
       alert("Sign-Up Successful! Please Sign In.");
       showSignIn.click(); // Switch to Sign-In Form
     } catch (error) {
       console.error("Error during sign-up:", error);
-      alert(error.message);
+      alert(`Error during sign-up: ${error.message}`);
     }
   });
 
-  // Handle Sign-In
   signInBtn.addEventListener("click", async () => {
-    console.log("Sign-In button clicked");
+    console.log("Sign-In Button Clicked");
     const email = document.getElementById("sign-in-email").value;
     const password = document.getElementById("sign-in-password").value;
 
-    // Log input values for debugging (do not log passwords in production)
-    console.log("Sign-In input values:", { email });
+    console.log("Sign-In Details:", { email });
 
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log("User signed in successfully:", userCredential.user);
-
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("Sign-In Successful");
       alert("Sign-In Successful!");
-      window.location.href = "/start.html"; // Redirect to main page
+      window.location.href = "/start.html"; // Redirect to home page
     } catch (error) {
       console.error("Error during sign-in:", error);
-      alert(error.message);
+      alert(`Error during sign-in: ${error.message}`);
     }
   });
 });
