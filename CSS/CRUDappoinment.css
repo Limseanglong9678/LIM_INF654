@@ -1,0 +1,52 @@
+h2 {
+    font-weight: 300;
+    color: #42a5f5;;
+}
+/* General Navbar Styling */
+.nav-wrapper {
+    display: flex;
+    justify-content: center; /* Center the navbar content */
+    align-items: center;
+    position: relative; /* Ensures correct positioning for child elements */
+    padding: 0 10px;
+}
+
+/* Back Arrow Styling */
+.nav-wrapper .brand-logo {
+    position: absolute;
+    left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-wrapper .brand-logo i.material-icons {
+    font-size: 24px;
+    color: white;
+}
+
+/* Centered Navbar Title */
+.navbar-title {
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media only screen and (max-width: 600px) {
+    .navbar-title {
+        font-size: 1.5rem;
+    }
+    h2{
+        font-size: 50px;
+    }
+}
+/* Modal Styling */
+.modal {
+    max-width: 400px;
+    border-radius: 10px;
+}
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
