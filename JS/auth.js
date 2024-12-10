@@ -2,7 +2,7 @@ import { auth } from "./firebaseDB.js";
 import {
   onAuthStateChanged,
   signOut,
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
 export let currentUser = null;
 
