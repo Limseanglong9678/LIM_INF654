@@ -3,6 +3,7 @@
 **Pet Care Companion** Pet Care Companion is a feature-rich web app designed to help users manage their pet's activities, appointments, and reminders efficiently. It supports both online and offline functionality for a seamless user experience.
 
 ## Features
+- Signin and Signup function
 - Add, Edit, and Delete Appointments: Full CRUD functionality to manage pet appointments.
 - Set Reminders: Add reminders for feeding times, vet visits, grooming, and more.
 - Offline Support: Data is cached and synced using IndexedDB and Service Workers, allowing the app to work offline.
@@ -19,7 +20,7 @@
 
 ## How to Use
 1. Clone this repository.
-2. Open `start.html` in a web browser to view the app.
+2. Open `signin.html` in a web browser to view the app and signup.
 3. Manage your pet's activities using the provided interface.
 4. Add or edit companions and appointments.
 5. View upcoming reminders on the homepage.
